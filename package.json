@@ -1,0 +1,62 @@
+{
+  "name": "api-mock",
+  "version": "0.0.0",
+  "description": "api-mock",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "keywords": [
+    ""
+  ],
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index",
+  "types": "lib/index",
+  "scripts": {
+    "clean": "rimraf lib && rimraf coverage",
+    "format": "prettier --write \"{src,__tests__}/**/*.ts\" --single-quote --trailing-comma es5",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+    "prepublishOnly": "npm run build",
+    "prebuild": "npm run clean && npm run format && npm run lint && echo Using TypeScript && tsc --version",
+    "build": "tsc --pretty",
+    "test": "node_modules/.bin/mocha --require=ts-node/register test/**/*.spec.ts",
+    "coverage": "jest --coverage",
+    "watch": "npm run build -- --watch",
+    "watch:test": "jest --watch"
+  },
+  "dependencies": {
+    "@ricanontherun/circuit-breaker": "^1.0.4",
+    "@types/lodash": "^4.14.138",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.0",
+    "@types/jest": "^23.3.3",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^10.11.4",
+    "@types/sinon": "^7.0.13",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "jest": "^23.6.0",
+    "mocha": "^6.2.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "sinon": "^7.4.1",
+    "ts-jest": "^23.10.3",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  }
+}
